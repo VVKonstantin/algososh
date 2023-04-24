@@ -1,0 +1,23 @@
+.form {
+  display: flex;
+  gap: 12px;
+  margin: 0 auto;
+  width: 567px;
+}
+
+.container {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin: 146px auto 0;
+  max-width: 1040px;
+}
+
+.input {
+  flex-basis: 377px;
+}
+
+.button {
+  flex-grow: 1;
+}
+

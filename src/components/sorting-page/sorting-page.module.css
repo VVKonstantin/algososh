@@ -1,0 +1,49 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 456px;
+}
+.form {
+  align-items: center;
+  display: flex;
+  gap: 0;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 924px;
+}
+
+.radio {
+  display: flex;
+  gap: 46px;
+  margin-right: 52px;
+}
+
+.ascdesc {
+  display: flex;
+  gap: 12px;
+  margin-right: 80px;
+  min-width: 403px;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.asc {
+  min-width: 205px;
+}
+
+.desc {
+  min-width: 186px;
+}
+
+.container {
+  align-items: end;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin: 48px auto 0;
+  max-width: 1040px;
+  min-height: 320px;
+}

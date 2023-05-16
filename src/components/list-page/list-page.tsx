@@ -213,6 +213,7 @@ export const ListPage: React.FC = () => {
           onClick={() => insertHead()}
           isLoader={isLoading.addHead}
           disabled={valInput === '' || isAnythingLoading()}
+          data-testid="add-head"
         />
         <Button
           text={"Добавить в tail"}
@@ -220,6 +221,7 @@ export const ListPage: React.FC = () => {
           onClick={insertTail}
           isLoader={isLoading.addTail}
           disabled={valInput === '' || isAnythingLoading() || list.length === 0}
+          data-testid="add-tail"
         />
         <Button
           text={"Удалить из head"}
@@ -227,6 +229,7 @@ export const ListPage: React.FC = () => {
           onClick={() => deleteHead()}
           isLoader={isLoading.deleteHead}
           disabled={isAnythingLoading() || list.length === 0}
+          data-testid="del-head"
         />
         <Button
           text={"Удалить из tail"}
@@ -234,6 +237,7 @@ export const ListPage: React.FC = () => {
           onClick={deleteTail}
           isLoader={isLoading.deleteTail}
           disabled={isAnythingLoading() || list.length === 0}
+          data-testid="del-tail"
         />
       </form>
       <form className={styles.form} onSubmit={onSubmit}>
@@ -252,6 +256,7 @@ export const ListPage: React.FC = () => {
           onClick={insertAtIndex}
           disabled={Number(indInput) < 0 || Number(indInput) > Math.max(list.length - 1, 0) || indInput === '' || valInput === '' || isAnythingLoading()}
           isLoader={isLoading.addAtIndex}
+          data-testid="add-by-index"
         />
         <Button
           text={"Удалить по индексу"}
@@ -259,6 +264,7 @@ export const ListPage: React.FC = () => {
           onClick={deleteAtIndex}
           disabled={(Number(indInput) < 0 || Number(indInput) > list.length - 1 || indInput === '' || isAnythingLoading())}
           isLoader={isLoading.delAtIndex}
+          data-testid="del-by-index"
         />
       </form>
       <div className={styles.container}>

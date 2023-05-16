@@ -85,6 +85,7 @@ export const StackPage: React.FC = () => {
             onClick={handleAddClick}
             disabled={(stringInput === '' || isClearLoading || isPopLoading) ? true : false}
             isLoader={isAddLoading ? true : false}
+            data-testid="add"
           />
           <Button
             text={"Удалить"}
@@ -92,6 +93,7 @@ export const StackPage: React.FC = () => {
             onClick={handlePopClick}
             disabled={(stackArr.length === 0 || isClearLoading || isAddLoading) ? true : false}
             isLoader={isPopLoading ? true : false}
+            data-testid="del"
           />
         </div>
         <Button
@@ -100,6 +102,7 @@ export const StackPage: React.FC = () => {
           onClick={handleClearClick}
           disabled={(stackArr.length === 0 || isPopLoading || isAddLoading) ? true : false}
           isLoader={isClearLoading ? true : false}
+          data-testid="clear"
         />
       </form>
       <div className={styles.container}>

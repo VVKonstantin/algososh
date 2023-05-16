@@ -80,6 +80,7 @@ export const QueuePage: React.FC = () => {
             onClick={handleAddClick}
             disabled={(stringInput === '' || (tail === size) || isDelLoading) ? true : false}
             isLoader={isAddLoading}
+            data-testid="add"
           />
           <Button
             text={"Удалить"}
@@ -87,12 +88,14 @@ export const QueuePage: React.FC = () => {
             onClick={handleDelClick}
             disabled={(tail === head || isAddLoading) ? true : false}
             isLoader={isDelLoading}
+            data-testid="del"
           />
         </div>
         <Button
           text={"Очистить"}
           extraClass={styles.buttonclear}
           onClick={handleClearClick}
+          data-testid="clear"
           disabled={((length === 0 && head === 0 && tail === 0) || isAddLoading || isDelLoading) ? true : false}
         />
       </form>

@@ -5,9 +5,10 @@ import { RadioInput } from "../ui/radio-input/radio-input";
 import { Button } from "../ui/button/button";
 import { Direction } from "../../types/direction";
 import { TArray } from "../../types/types";
-import { randomArr, swap } from "../utils/utils";
+import { randomArr } from "../utils/utils";
 import { ElementStates } from "../../types/element-states";
 import { Column } from "../ui/column/column";
+import { selectionSort, bubbleSort } from "../utils/utils";
 
 export const SortingPage: React.FC = () => {
   const [sort, setSort] = useState<string>('selection');
@@ -41,86 +42,18 @@ export const SortingPage: React.FC = () => {
     return arr;
   }
 
-  const handleSort = (type: string) => {
+  const handleSort = async (type: string) => {
     let arr: TArray[] = reset();
     if (sort === 'selection') {
-      selectionSort(arr, type);
+      (type === 'asc') ? setAscLoading(true) : setDescLoading(true);
+      await selectionSort(arr, type, setSortArr);
+      (type === 'asc') ? setAscLoading(false) : setDescLoading(false);
     }
     else {
-      bubbleSort(arr, type);
+      (type === 'asc') ? setAscLoading(true) : setDescLoading(true);
+      await bubbleSort(arr, type, setSortArr);
+      (type === 'asc') ? setAscLoading(false) : setDescLoading(false);
     }
-  }
-
-  const bubbleSort = async (arr: TArray[], type: string) => {
-    (type === 'asc') ? setAscLoading(true) : setDescLoading(true);
-
-    const length = arr.length;
-
-    for (let i = 0; i < length - 1; i++) {
-      let flag = 0;
-      for (let j = 0; j < length - i - 1; j++) {
-        arr[j].state = arr[j + 1].state = ElementStates.Changing;
-        setSortArr([...arr]);
-        if (type === 'asc') {
-          if (arr[j].val > arr[j + 1].val) {
-            swap(arr, j, j + 1);
-            flag = 1;
-          }
-        }
-        else {
-          if (arr[j].val < arr[j + 1].val) {
-            swap(arr, j, j + 1);
-            flag = 1;
-          }
-        }
-        await new Promise(r => setTimeout(r, 500));
-        arr[j].state = arr[j + 1].state = ElementStates.Default;
-        setSortArr([...arr]);
-      }
-      arr[length - i - 1].state = ElementStates.Modified;
-      setSortArr([...arr]);
-
-      //if the array is already sorted...
-      if (!flag || length - i - 1 === 1) {
-        for (let k = 0; k < length - i - 1; k++) {
-          arr[k].state = ElementStates.Modified;
-          setSortArr([...arr]);
-        }
-        break;
-      }
-    }
-    (type === 'asc') ? setAscLoading(false) : setDescLoading(false);
-  }
-
-  const selectionSort = async (arr: TArray[], type: string) => {
-
-    (type === 'asc') ? setAscLoading(true) : setDescLoading(true);
-
-    const length = arr.length;
-    for (let i = 0; i < length - 1; i++) {
-      let ind = i;
-      arr[i].state = ElementStates.Changing;
-      setSortArr([...arr]);
-      for (let j = i + 1; j < length; j++) {
-        if (type === 'asc') {
-          if (arr[j].val < arr[ind].val) ind = j;
-        }
-        else {
-          if (arr[j].val > arr[ind].val) ind = j;
-        }
-        arr[j].state = ElementStates.Changing;
-        setSortArr([...arr]);
-        await new Promise(r => setTimeout(r, 500));
-        arr[j].state = ElementStates.Default;
-      }
-      arr[i].state = ElementStates.Default;
-      if (i !== ind) swap(arr, i, ind);
-      arr[i].state = ElementStates.Modified;
-      if (i === length - 2) arr[i + 1].state = ElementStates.Modified;
-      setSortArr([...arr]);
-    }
-
-    (type === 'asc') ? setAscLoading(false) : setDescLoading(false);
   }
 
   return (

@@ -1,0 +1,34 @@
+.form {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 952px;
+  width: 100%;
+}
+
+.form:last-of-type {
+  margin-top: 12px;
+}
+
+.button1 {
+  min-width: 175px;
+}
+
+.button2 {
+  min-width: 362px;
+}
+
+.container {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin: 120px auto 0;
+}
+
+.list__elem {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+}
+

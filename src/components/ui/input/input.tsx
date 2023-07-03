@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./input.module.css";
+import { correctNoun } from "../../utils/utils";
 
 interface InputProps extends React.HTMLProps<HTMLInputElement> {
   placeholder?: string;
@@ -18,7 +19,7 @@ export const Input: React.FC<InputProps> = ({
 }) => {
   const limitText =
     type === "text"
-      ? `Максимум — ${maxLength} символа`
+      ? `Максимум — ${maxLength} ${correctNoun(maxLength)}`
       : `Максимальное число — ${max}`;
 
   return (

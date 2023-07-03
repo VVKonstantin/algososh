@@ -1,0 +1,39 @@
+.form {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 829px;
+  width: 100%;
+}
+
+.form__container {
+  display: flex;
+  gap: 12px;
+  margin-right: 80px;
+  max-width: 630px;
+  width: 100%;
+}
+
+.input {
+  min-width: 377px;
+}
+
+.buttonadd {
+  min-width: 121px;
+}
+
+.buttondel {
+  min-width: 108px;
+}
+
+.buttonclear {
+  min-width: 119px;
+}
+
+.container {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin: 48px auto 0;
+}
+

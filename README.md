@@ -1,19 +1,25 @@
-# Проект: МБОУ АЛГОСОШ от Яндекс Практикум, курс Веб разработчик плюс, спринт 11 (ранее 12)
+# Project AlgoSosh
 
-[Страница проекта](https://konstantingravvavilov.github.io/algososh/ "Перейти на страницу проекта")
+You can see the project [here](https://vvkonstantin.github.io/algososh/ "go to site")
 
-### Представляет собой многостраничный сайт, написанный на TS, с визуализацией работы некоторых алгоритмов, а также структур данных.
+### Multi-page site with visualization of some algorithms and data structures developed during Yandex Practicum course
 
-Реализованы
-1. Алгоритм разворота строки
-2. Вычисление последовательности чисел Фибоначчи
-3. 2 квадратичных алогритмасортировки массива: выбор и пузырек
-4. Операции со стеком
-5. Операции с очередью
-6. Операции с односвязным списком
+## Algorithms
+- Reverse string
+- Calculating the sequence of Fibonacci numbers
+- 2 algorithms of array sorting: selection and bubble
+- Stack and its basic operations
+- Queue and its basic operations
+- Singly linked list and its basic operations
 
-Были использованы
-1. HTML + CSS + JSX
-2. React
-3. TypeScript
-4. Верстка сайта в соответствии с макетом в Figma
+## Technologies
+![TypeScript](https://img.shields.io/badge/-TypeScript-333?&logo=TypeScript) 
+
+![React](https://img.shields.io/badge/-React-333?style=flat&logo=React)
+![React Router](https://img.shields.io/badge/-React_Router-333?style=flat&logo=React-Router)
+
+![Jest](https://img.shields.io/badge/-Jest-333?&logo=Jest)
+![Cypress](https://img.shields.io/badge/-Cypress-333?&logo=Cypress)
+
+![HTML5](https://img.shields.io/badge/-HTML5-333?&logo=HTML5)
+![CSS3](https://img.shields.io/badge/-CSS3-333?&logo=CSS3)
